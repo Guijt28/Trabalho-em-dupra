@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Protegido</title>
+  <style>
+    #login-page {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #content-page {
+      display: none; /* Oculta o conteúdo por padrão */
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="login-page">
+    <h2>Acesso Restrito</h2>
+    <input type="password" id="password-input" placeholder="Digite a senha" />
+    <button onclick="checkPassword()">Entrar</button>
+    <p id="message"></p>
+  </div>
+
+  <div id="content-page">
+    <h1>Bem-vindo ao Conteúdo Secreto!</h1>
+    <p>Este é o conteúdo que só aparece depois de digitar a senha correta.</p>
+    <p>Você pode colocar qualquer conteúdo HTML aqui.</p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "minhasenha123"; // Mude esta senha!
+      const passwordInput = document.getElementById("password-input").value;
+      const loginPage = document.getElementById("login-page");
+      const contentPage = document.getElementById("content-page");
+      const message = document.getElementById("message");
+
+      if (passwordInput === correctPassword) {
+        loginPage.style.display = "none";
+        contentPage.style.display = "block";
+      } else {
+        message.textContent = "Senha incorreta. Tente novamente.";
+        message.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
